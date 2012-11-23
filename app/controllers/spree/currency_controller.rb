@@ -1,16 +1,14 @@
 module Spree
-  class CurrencyController < Spree::BaseController
-
+  class CurrencyController < Spree::StoreController
     def set
-      if @currency = Spree::Currency.find_by_char_code(params[:id].to_s.upcase)
-        session[:currency_id] = params[:id].to_s.upcase.to_sym
-        Spree::Currency.current!(@currency)
-        flash.notice = t(:currency_changed)
-      else
-        flash[:error] = t(:currency_not_found)
+      currency = supported_currencies.find { |currency| currency.iso_code == params[:currency] }
+      session[:currency] = params[:currency] if Spree::Config[:allow_currency_change]
+      respond_to do |format|
+        format.json { render :json => !currency.nil? }
+        format.html do
+          redirect_to root_path
+        end
       end
-
-      redirect_back_or_default(root_path)
     end
   end
 end

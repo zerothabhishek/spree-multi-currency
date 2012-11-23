@@ -1,5 +1,13 @@
-*.gem
-.bundle
+\#*
+*~
+.#*
+.DS_Store
+.idea
+.project
+coverage
 Gemfile.lock
-pkg/*
+tmp
+nbproject
+pkg
+*.swp
 spec/dummy

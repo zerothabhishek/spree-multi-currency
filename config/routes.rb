@@ -1,8 +1,9 @@
-# Put your extension routes here.
-Spree::Core::Engine.routes.prepend do
-  match "currency/:id" => "currency#set", :as => :currency
+Spree::Core::Engine.routes.draw do
+  match '/currency/set', :to => 'currency#set', :defaults => { :format => :json }, :as => :set_currency
+
   namespace :admin do
-    resources :currencies
-    resources :currency_converters
+    resources :products do
+      resources :prices, :only => [:index, :create]
+    end
   end
 end
