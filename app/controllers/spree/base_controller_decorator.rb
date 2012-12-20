@@ -9,4 +9,10 @@ Spree::BaseController.class_eval do
     end
   end
 
+  def change_currency(currency_code)
+    @currency = Spree::Currency.find_by_char_code(currency_code.to_s.upcase)
+    session[:currency_id] = currency_code.to_s.upcase.to_sym
+    Spree::Currency.current!(@currency)
+  end
+
 end

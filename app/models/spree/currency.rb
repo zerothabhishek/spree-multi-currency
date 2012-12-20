@@ -56,7 +56,7 @@ module Spree
       # Exchanges money between two currencies.
       # E.g. with these args: 150, DKK, GBP returns 16.93
       def convert(value, from, to)
-        ( Money.new(value.to_f * 10000, from).exchange_to(to).to_f / 100).round(2)
+        ( ::Money.new(value.to_f * 10000, from).exchange_to(to).to_f / 100).round(2)
       end
 
       # Converts the basic currency value to a 'localized' value.
@@ -106,7 +106,7 @@ module Spree
       private
 
       def add_rate(from, to, rate)
-        Money.add_rate(from, to, rate.to_f ) unless Money.default_bank.get_rate(from, to)
+        ::Money.add_rate(from, to, rate.to_f ) unless ::Money.default_bank.get_rate(from, to)
       end
 
     end
