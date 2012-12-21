@@ -26,12 +26,12 @@ Spree::Order.class_eval do
 
   def update!
     update_totals
-    update_payment_state
+    #update_payment_state
 
     # give each of the shipments a chance to update themselves
     shipments.each { |shipment| shipment.update!(self) }#(&:update!)
-    update_shipment_state
-    update_adjustments
+    #update_shipment_state
+    #update_adjustments
     # update totals a second time in case updated adjustments have an effect on the total
     update_totals
     update_attributes_without_callbacks({
@@ -51,6 +51,7 @@ Spree::Order.class_eval do
     update_hooks.each { |hook| self.send hook }
   end
 
+=begin
   def add_variant(variant, quantity = 1)
       current_item = contains?(variant)
       if current_item
@@ -75,9 +76,10 @@ Spree::Order.class_eval do
         end
         current_item.update_attribute(field[:name].gsub(' ', '_').downcase, value)
       end
-
       self.reload
       current_item
   end
+
+=end
 
 end
