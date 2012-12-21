@@ -26,12 +26,14 @@ Spree::Order.class_eval do
 
   def update!
     update_totals
-    #update_payment_state
+    
+    update_payment_state if respond_to?(:update_payment_state)
+    
 
     # give each of the shipments a chance to update themselves
     shipments.each { |shipment| shipment.update!(self) }#(&:update!)
-    #update_shipment_state
-    #update_adjustments
+    update_shipment_state if respond_to?(:update_shipment_state)
+    update_adjustments if respond_to?(:update_adjustments)
     # update totals a second time in case updated adjustments have an effect on the total
     update_totals
     update_attributes_without_callbacks({
