@@ -156,41 +156,41 @@ Settings
 --------------------
  Формат для валюты прописан в локализации, для каждой валюты нужно описать свою локализацию (прописаны eur, usd, rub):
  Пример для usd, eur
-  ---
-  currency_USD: &usd
-    number:
-      currency:
-        format:
-          format: "%u%n"
-          unit: "$"
-          separator: "."
-          delimiter: ","
-          precision: 2
-          significant: false
-          strip_insignificant_zeros: false
+    ---
+    currency_USD: &usd
+      number:
+        currency:
+          format:
+            format: "%u%n"
+            unit: "$"
+            separator: "."
+            delimiter: ","
+            precision: 2
+            significant: false
+            strip_insignificant_zeros: false
 
-  currency_EUR:
-    <<: *usd
-    number:
-      currency:
-        format:
-          format: "%u%n"
-          unit: "€"
+    currency_EUR:
+      <<: *usd
+      number:
+        currency:
+          format:
+            format: "%u%n"
+            unit: "€"
 
 
 For tests
 _________________________
 
-  extention require store in ./spree
-  in Rakefile defined
-  # require define path to spree project
-  ENV['SPREE_GEM_PATH'] = "/home/dima/project/spree"
-  # or define spree as gem in Gemfile
-  # and decomment this
-  # gemfile = Pathname.new("Gemfile").expand_path
-  # lockfile = gemfile.dirname.join('Gemfile.lock')
-  # definition = Bundler::Definition.build(gemfile, lockfile, nil)
-  # sc=definition.index.search "spree"
-  # ENV['SPREE_GEM_PATH'] = sc[0].loaded_from.gsub(/\/[a-z_]*.gemspec$/,'')
+    extention require store in ./spree
+    in Rakefile defined
+    # require define path to spree project
+    ENV['SPREE_GEM_PATH'] = "/home/dima/project/spree"
+    # or define spree as gem in Gemfile
+    # and decomment this
+    # gemfile = Pathname.new("Gemfile").expand_path
+    # lockfile = gemfile.dirname.join('Gemfile.lock')
+    # definition = Bundler::Definition.build(gemfile, lockfile, nil)
+    # sc=definition.index.search "spree"
+    # ENV['SPREE_GEM_PATH'] = sc[0].loaded_from.gsub(/\/[a-z_]*.gemspec$/,'')
 
 
