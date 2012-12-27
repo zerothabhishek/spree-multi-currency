@@ -53,6 +53,15 @@ module Spree
 
       end
 
+      def convert_to(value, to, options={})
+        basic
+        to_currency = Spree::Currency.find_by_char_code(to) 
+        if @rate = to_currency.currency_converters.get_rate(options[:date] || Time.now)
+          add_rate(@basic.char_code,   to_currency.char_code, @rate.nominal/@rate.value.to_f)
+          add_rate(to_currency.char_code, @basic.char_code,   @rate.value.to_f)
+        end
+        convert(value, @basic.char_code, to)
+      end
       # Exchanges money between two currencies.
       # E.g. with these args: 150, DKK, GBP returns 16.93
       def convert(value, from, to)
