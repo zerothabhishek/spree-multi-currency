@@ -50,7 +50,6 @@ module Spree
           add_rate(@basic.char_code,   @current.char_code, @rate.nominal/@rate.value.to_f)
           add_rate(@current.char_code, @basic.char_code,   @rate.value.to_f)
         end
-
       end
 
       def convert_to(value, to, options={})

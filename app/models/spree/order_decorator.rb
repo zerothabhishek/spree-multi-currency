@@ -14,21 +14,35 @@ Spree::Order.class_eval do
   end
 
   def rate_hash
-    @rate_hash ||= available_shipping_methods(:front_end).collect do |ship_method|
-      next unless cost = ship_method.calculator.compute(self)
-      { :id => ship_method.id,
-        :shipping_method => ship_method,
-        :name => ship_method.name,
-        :cost => Spree::Currency.conversion_to_current(cost)
-      }
-    end.compact.sort_by{|r| r[:cost]}
+    return @rate_hash if @rate_hash.present?
+
+    # reserve one slot for each shipping method computation
+    computed_costs = Array.new(available_shipping_methods(:front_end).size)
+
+    # create all the threads and kick off their execution
+    threads = available_shipping_methods(:front_end).each_with_index.map do |ship_method, index|
+      Thread.new { computed_costs[index] = [ship_method, ship_method.calculator.compute(self)] }
+    end
+
+    # wait for all threads to finish
+    threads.map(&:join)
+
+    # now consolidate and memoize the threaded results
+    @rate_hash ||= computed_costs.map do |pair|
+      ship_method,cost = *pair
+      next unless cost
+      ShippingRate.new( :id => ship_method.id,
+                       :shipping_method => ship_method,
+                       :name => ship_method.name,
+                       :cost => Spree::Currency.conversion_to_current(cost))
+    end.compact.sort_by { |r| r.cost }
   end
 
   def update!
     update_totals
-    
+
     update_payment_state if respond_to?(:update_payment_state)
-    
+
 
     # give each of the shipments a chance to update themselves
     shipments.each { |shipment| shipment.update!(self) }#(&:update!)
