@@ -31,7 +31,7 @@ Spree::Order.class_eval do
     @rate_hash ||= computed_costs.map do |pair|
       ship_method,cost = *pair
       next unless cost
-      ShippingRate.new( :id => ship_method.id,
+      Spree::ShippingRate.new( :id => ship_method.id,
                        :shipping_method => ship_method,
                        :name => ship_method.name,
                        :cost => Spree::Currency.conversion_to_current(cost))
