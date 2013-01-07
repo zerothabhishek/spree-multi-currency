@@ -60,7 +60,7 @@ module Spree
           add_rate(@basic.char_code,   to_currency.char_code, @rate.nominal/@rate.value.to_f)
           add_rate(to_currency.char_code, @basic.char_code,   @rate.value.to_f)
         end
-        convert(value, @basic.char_code, to)
+        convert(value, to, @basic.char_code)
       end
       # Exchanges money between two currencies.
       # E.g. with these args: 150, DKK, GBP returns 16.93
