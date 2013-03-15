@@ -5,6 +5,8 @@ Spree::Order.class_eval do
                  :only_read => true
 
 
+  # spree 1.3 uses updater
+=begin
   def update_totals
     # update_adjustments
     self.payment_total = payments.completed.map(&:amount).sum
@@ -12,6 +14,7 @@ Spree::Order.class_eval do
     self.adjustment_total = adjustments.map(&:amount).sum
     self.total = read_attribute(:item_total) + adjustment_total
   end
+=end
 
   def rate_hash
     return @rate_hash if @rate_hash.present?
@@ -38,6 +41,7 @@ Spree::Order.class_eval do
     end.compact.sort_by { |r| r.cost }
   end
 
+=begin
   def update!
     update_totals
 
@@ -66,6 +70,7 @@ Spree::Order.class_eval do
 
     update_hooks.each { |hook| self.send hook }
   end
+=end
 
 =begin
   def add_variant(variant, quantity = 1)
