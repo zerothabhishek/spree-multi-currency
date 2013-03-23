@@ -2,8 +2,6 @@
 lib = File.expand_path('../lib/', __FILE__)
 $:.unshift lib unless $:.include?(lib)
 
-require 'spree_multi_currency/version'
-
 Gem::Specification.new do |s|
   s.platform     = Gem::Platform::RUBY
   s.name         = 'spree_multi_currency'
@@ -24,7 +22,7 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency 'spree', '~> 2.0'
   s.add_runtime_dependency 'nokogiri', '>= 1.4.4'
-  s.add_runtime_dependency 'money', '>= 3.6.1'
+  s.add_runtime_dependency 'money', '>= 5.0.0'
   s.add_runtime_dependency 'json', '>= 1.5.1'
 
   s.add_development_dependency 'rspec-rails', '~> 2.13'
