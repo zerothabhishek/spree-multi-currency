@@ -4,7 +4,7 @@ module Spree
       currency = supported_currencies.find { |currency| currency.iso_code == params[:currency] }
       session[:currency] = params[:currency] if Spree::Config[:allow_currency_change]
       respond_to do |format|
-        format.json { render :json => !currency.nil? }
+        format.json { render json: !currency.nil? }
         format.html do
           redirect_to root_path
         end
