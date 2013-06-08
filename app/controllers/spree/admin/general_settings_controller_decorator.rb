@@ -7,12 +7,12 @@ Spree::Admin::GeneralSettingsController.class_eval do
   def update
     params.each do |name, value|
       next unless Spree::Config.has_preference? name
-      if name == "supported_currencies"
+      if name == 'supported_currencies'
         value = value.split(',').map { |curr| ::Money::Currency.find(curr.strip).try(:iso_code) }.concat([Spree::Config[:currency]]).uniq.compact.join(',')
       end
       Spree::Config[name] = value
     end
-    flash[:success] = t(:successfully_updated, :resource => t(:general_settings))
+    flash[:success] = Spree.t(:successfully_updated, resource: Spree.t(:general_settings))
 
     redirect_to edit_admin_general_settings_path
   end

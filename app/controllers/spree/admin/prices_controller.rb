@@ -1,7 +1,7 @@
 module Spree
   module Admin
     class PricesController < ResourceController
-      belongs_to 'spree/product', :find_by => :permalink
+      belongs_to 'spree/product', find_by: :permalink
 
       def create
         params[:vp].each do |variant_id, prices|
@@ -14,7 +14,7 @@ module Spree
             end
           end
         end
-        render :action => :index
+        render :index
       end
     end
   end
