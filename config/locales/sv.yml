@@ -1,0 +1,6 @@
+---
+sv:
+  spree:
+    prices: Priser
+    show_currency_selector: Visa valuta val
+    supported_currencies: Tillgängliga valutor
