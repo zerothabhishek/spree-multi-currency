@@ -4,8 +4,6 @@
 [![Dependency Status](https://gemnasium.com/futhr/spree_multi_currency.png)](https://gemnasium.com/futhr/spree_multi_currency)
 [![Coverage Status](https://coveralls.io/repos/futhr/spree_multi_currency/badge.png?branch=master)](https://coveralls.io/r/futhr/spree_multi_currency)
 
-**NOTE: THIS FORK IS WIP FOR SPREE 2.x**
-
 Provides UI to allow configuring multiple currencies in Spree.
 
 This provides 3 preferences:
@@ -14,7 +12,7 @@ This provides 3 preferences:
 * show_currency_selector - Display the currency selector in the main nav bar. This will only display if there are multiple supported currencies, and allow_currency_change is on.
 * supported_currencies - A comma separated list of.
 
-### Example
+## Installation
 
 To install you'll need to add the following to your Gemfile:
 ```ruby
@@ -29,20 +27,40 @@ And then run:
 
     $ rails generate spree_multi_currency:install
 
-### TODO
+## TODO
 
 * The price range filters don't work properly for the non-default currency.
 * Style the currency selector to look better.
 * Improve the currency selector with something like select2.
 
-## Development
+## Contributing
 
-  * Fork the repo
-  * Clone your repo
-  * Run `bundle`
-  * Run `bundle exec rake test_app` to create the test application in `spec/test_app`
-  * Make your changes
-  * Ensure specs pass by running `bundle exec rake`
-  * Submit your pull request
+In the spirit of [free software][1], **everyone** is encouraged to help improve this project.
 
-Copyright (c) 2013, Spree Commerce, Inc. and other contributors, released under the New BSD License
+Here are some ways *you* can contribute:
+
+* by using prerelease versions
+* by reporting [bugs][2]
+* by suggesting new features
+* by writing or editing documentation
+* by writing specifications
+* by writing code (*no patch is too small*: fix typos, add comments, clean up inconsistent whitespace)
+* by refactoring code
+* by resolving [issues][2]
+* by reviewing patches
+
+Starting point:
+
+* Fork the repo
+* Clone your repo
+* Run `bundle`
+* Run `bundle exec rake test_app` to create the test application in `spec/test_app`
+* Make your changes and follow this [Style Guide](https://github.com/thoughtbot/guides)
+* Ensure specs pass by running `bundle exec rspec spec`
+* Submit your pull request
+
+Copyright (c) 2013, Spree Commerce, Inc. and other contributors, released under the [New BSD License][3]
+
+[1]: http://www.fsf.org/licensing/essays/free-sw.html
+[2]: https://github.com/spree/spree_multi_currency/issues
+[3]: https://github.com/spree/spree_multi_currency/tree/master/LICENSE
