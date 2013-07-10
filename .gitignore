@@ -7,4 +7,5 @@ Gemfile.lock
 tmp
 pkg
 spec/dummy
+.rvmrc
 .localeapp
