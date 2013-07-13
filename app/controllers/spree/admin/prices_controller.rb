@@ -8,8 +8,13 @@ module Spree
           variant = Spree::Variant.find(variant_id)
           if variant
             supported_currencies.each do |currency|
+              if variant.isa_part?
+                kit_price = variant.kit_price_in(currency.iso_code)
+                kit_price.price = (prices['kit_price'][currency.iso_code].blank? ? nil : prices['kit_price'][currency.iso_code])
+                kit_price.save! if kit_price.changed?
+              end
               price = variant.price_in(currency.iso_code)
-              price.price = ((prices[currency.iso_code].nil? || prices[currency.iso_code].empty?) ? nil : prices[currency.iso_code])
+              price.price = (prices[currency.iso_code].blank? ? nil : prices[currency.iso_code])
               price.save! if price.changed?
             end
           end

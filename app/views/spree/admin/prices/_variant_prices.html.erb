@@ -2,6 +2,13 @@
 <ul>
 <% supported_currencies.each do |currency| %>
   <li>
+    <% if variant.isa_part? %>
+    <label for='<%= "vp_#{variant.id}_kit_price_#{currency.iso_code}" %>'><%= Spree.t(:kit_price) %></label>
+    <% kit_price = variant.kit_price_in(currency.iso_code) %>
+    <%= text_field_tag("vp[#{variant.id}][kit_price][#{currency.iso_code}]", (kit_price ? kit_price.display_amount : '')) %>
+    <span> || </span>
+    <label for='<%= "vp_#{variant.id}_#{currency.iso_code}" %>'><%= Spree.t(:normal_price) %></label>
+    <% end %>
     <% price = variant.price_in(currency.iso_code) %>
     <%= text_field_tag("vp[#{variant.id}][#{currency.iso_code}]", (price ? price.display_amount : '')) %>
     <%= currency.iso_code %>
