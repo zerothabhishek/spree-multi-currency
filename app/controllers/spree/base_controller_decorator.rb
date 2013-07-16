@@ -8,5 +8,4 @@ Spree::BaseController.class_eval do
       Spree::Currency.current!(@currency)
     end
   end
-
 end

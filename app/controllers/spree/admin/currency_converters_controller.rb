@@ -1,4 +1,6 @@
 module Spree
-  class Admin::CurrencyConvertersController < Admin::ResourceController
+  module Admin
+    class CurrencyConvertersController < ResourceController
+    end
   end
 end

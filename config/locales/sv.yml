@@ -4,3 +4,27 @@ sv:
     prices: Priser
     show_currency_selector: Visa valuta val
     supported_currencies: Tillgängliga valutor
+    currency_changed: Valuta ändrats
+    currency_not_found: Valuta hittades inte
+    currency_settings: Valuta inställningar
+    currency_converters_settings: Valuta omvandlare
+    currency_description: Referens valuta
+    currency_converters_description: Valutakurser
+    add_currency_converter: Lägg växelkursen
+    currency_converter: Valutaomvandlare
+    currency_converter_date_req: Datum
+    currency_converter_currency: Valuta
+    currency_converter_nominal: Nominal
+    currency_converter_value: Värde
+    new_currency_converter: Ny
+    editing_currency_converter: Ändra
+    add_currency: Lägg till valuta
+    list_currency: Lista av valutor
+    currency_name: Valuta
+    currency_code: Kod
+    currency_num_code: ISO sifferkod
+    currency_char_code: ISO char-kod
+    currency_locale: Språk
+    currency_basic: Bas valuta
+    editing_currency: Ändra
+    new_currency: Lägg till

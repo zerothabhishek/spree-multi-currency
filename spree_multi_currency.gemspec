@@ -12,9 +12,9 @@ Gem::Specification.new do |s|
   s.description  = s.summary
   s.required_ruby_version = '>= 1.9.3'
 
-  s.author       = 'Gregor MacDougall'
-  s.email        = 'gmacdougall@freerunningtechnologies.com'
-  s.homepage     = 'https://github.com/spree/spree_multi_currency'
+  s.authors      = ['Pronix LLC', 'Gregor MacDougall']
+  s.email        = 'pronix.service@gmail.com'
+  s.homepage     = 'https://github.com/pronix/spree-multi-currency'
   s.license      = %q{BSD-3}
 
   s.files        = `git ls-files`.split("\n")
@@ -23,6 +23,9 @@ Gem::Specification.new do |s|
   s.requirements << 'none'
 
   s.add_runtime_dependency 'spree', '~> 2.0'
+  s.add_runtime_dependency 'nokogiri', '>= 1.4.4'
+  s.add_runtime_dependency 'money', '>= 3.6.1'
+  s.add_runtime_dependency 'json', '>= 1.5.1'
 
   s.add_development_dependency 'rspec-rails', '~> 2.13'
   s.add_development_dependency 'capybara', '~> 2.1.0'

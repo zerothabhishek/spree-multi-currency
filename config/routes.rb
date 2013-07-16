@@ -4,6 +4,8 @@ Spree::Core::Engine.routes.prepend do
   namespace :admin do
     resources :products do
       resources :prices, only: [:index, :create]
+      resources :currencies
+      resources :currency_converters
     end
   end
 end
