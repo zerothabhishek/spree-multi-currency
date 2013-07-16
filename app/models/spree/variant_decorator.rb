@@ -33,7 +33,6 @@ Spree::Variant.class_eval do
       end
     end
   end
-
 end
 
 Spree::Money.class_eval do

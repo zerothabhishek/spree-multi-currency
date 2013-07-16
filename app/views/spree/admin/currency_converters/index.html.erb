@@ -1,11 +1,11 @@
-<%= render(:partial => "/spree/admin/shared/configuration_menu") %>
+<%= render '/spree/admin/shared/configuration_menu' %>
 <% content_for :page_title do %>
-  <%= t(:currency_converter) %>
+  <%= Spree.t(:currency_converter) %>
 <% end %>
 
 <% content_for :page_actions do %>
   <li>
-    <%= button_link_to t("add_currency_converter"), new_object_url, :icon => 'icon-plus' %>
+    <%= button_link_to Spree.t(:add_currency_converter), new_object_url, icon: 'icon-plus' %>
   </li>
 <% end %>
 
@@ -19,19 +19,19 @@
   </colgroup>
   <thead>
   	<tr>
-      <th><%= t("currency_converter_date_req") %></th>
-      <th><%= t("currency_converter_currency") %></th>
-      <th><%= t("currency_converter_nominal") %></th>
-      <th><%= t("currency_converter_value") %></th>
+      <th><%= Spree.t(:currency_converter_date_req) %></th>
+      <th><%= Spree.t(:currency_converter_currency) %></th>
+      <th><%= Spree.t(:currency_converter_nominal) %></th>
+      <th><%= Spree.t(:currency_converter_value) %></th>
   	</tr>
   </thead>
   <tbody>
     <% @currency_converters.each do |currency_converter|%>
       <tr id="<%= dom_id currency_converter %>">
-        <td><%=  currency_converter.date_req %></td>
+        <td><%= currency_converter.date_req %></td>
         <td width="350px"><%= currency_converter.currency.try(:name) %></td>
-        <td><%=  currency_converter.nominal %></td>
-        <td><%=  currency_converter.value %></td>
+        <td><%= currency_converter.nominal %></td>
+        <td><%= currency_converter.value %></td>
         <td>
         	<%= link_to_edit currency_converter %> &nbsp;
   	      <%= link_to_delete currency_converter %> &nbsp;

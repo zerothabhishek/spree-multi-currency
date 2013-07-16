@@ -87,5 +87,4 @@ Spree::Order.class_eval do
       self.reload
       current_item
   end
-
 end

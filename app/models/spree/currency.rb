@@ -111,8 +111,6 @@ module Spree
       def add_rate(from, to, rate)
         ::Money.add_rate(from, to, rate.to_f )
       end
-
     end
-
   end
 end

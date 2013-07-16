@@ -1,4 +1,4 @@
-# Encoding: utf-8
+# coding: utf-8
 #
 # redefined default method
 # http://api.rubyonrails.org/classes/ActionView/Helpers/NumberHelper.html
@@ -49,9 +49,7 @@ module ActionView
             end
           end
         end
-
       end
-
     end
   end
 end
