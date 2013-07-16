@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/futhr/spree-multi-currency.png)](https://travis-ci.org/futhr/spree-multi-currency)
 [![Dependency Status](https://gemnasium.com/futhr/spree-multi-currency.png)](https://gemnasium.com/futhr/spree-multi-currency)
 [![Coverage Status](https://coveralls.io/repos/futhr/spree-multi-currency/badge.png?branch=master)](https://coveralls.io/r/futhr/spree-multi-currency)
+[![Code Climate](https://codeclimate.com/repos/51e56f5956b102205b01233e/badges/d68b66dbb22d859d9091/gpa.png)](https://codeclimate.com/repos/51e56f5956b102205b01233e/feed)
 
 Provides UI to allow configuring multiple currencies in Spree and support different currency and recalculate price from one to another.
 
