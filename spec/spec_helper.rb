@@ -8,11 +8,11 @@ if ENV['COVERAGE']
   SimpleCov.start do
     add_filter '/spec/'
     add_group 'Controllers', 'app/controllers'
-    add_group 'Overrides', 'app/overrides'
+    add_group 'Helpers', 'app/helpers'
     add_group 'Models', 'app/models'
+    add_group 'Overrides', 'app/overrides'
     add_group 'Libraries', 'lib'
   end
-end
 
 ENV['RAILS_ENV'] = 'test'
 
@@ -32,7 +32,7 @@ require 'spree/testing_support/authorization_helpers'
 require 'spree/testing_support/url_helpers'
 
 RSpec.configure do |config|
-  config.include Capybara::DSL, type: :request
+  config.include Capybara::DSL, type: [:request, :feature]
   config.include Spree::TestingSupport::ControllerRequests
   config.include FactoryGirl::Syntax::Methods
   config.include Spree::TestingSupport::UrlHelpers
