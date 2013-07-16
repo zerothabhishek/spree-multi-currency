@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.description  = s.summary
   s.required_ruby_version = '>= 1.9.3'
 
-  s.authors      = ['Pronix LLC', 'Gregor MacDougall']
+  s.author       = 'Pronix LLC'
   s.email        = 'pronix.service@gmail.com'
   s.homepage     = 'https://github.com/pronix/spree-multi-currency'
   s.license      = %q{BSD-3}
