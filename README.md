@@ -1,10 +1,10 @@
-# Spree MultiCurrency
+# Spree Multi-Currency (Slim edition)
 
-[![Build Status](https://travis-ci.org/futhr/spree_multi_currency.png)](https://travis-ci.org/futhr/spree_multi_currency)
-[![Dependency Status](https://gemnasium.com/futhr/spree_multi_currency.png)](https://gemnasium.com/futhr/spree_multi_currency)
-[![Coverage Status](https://coveralls.io/repos/futhr/spree_multi_currency/badge.png?branch=master)](https://coveralls.io/r/futhr/spree_multi_currency)
+[![Build Status](https://travis-ci.org/futhr/spree-multi-currency.png)](https://travis-ci.org/futhr/spree-multi-currency)
+[![Dependency Status](https://gemnasium.com/futhr/spree-multi-currency.png)](https://gemnasium.com/futhr/spree-multi-currency)
+[![Coverage Status](https://coveralls.io/repos/futhr/spree-multi-currency/badge.png?branch=master)](https://coveralls.io/r/futhr/spree-multi-currency)
 
-Provides UI to allow configuring multiple currencies in Spree.
+Provides UI to allow configuring multiple currencies in Spree. This is the slim edition without extended currency converters.
 
 This provides 3 preferences:
 
@@ -16,7 +16,7 @@ This provides 3 preferences:
 
 To install you'll need to add the following to your `Gemfile`:
 ```ruby
-gem 'spree_multi_currency', github: 'spree/spree_multi_currency'
+gem 'spree_multi_currency', github: 'prosnix/spree-multi-currency'
 ```
 
 Run:
@@ -26,12 +26,6 @@ Run:
 And then run:
 
     $ rails generate spree_multi_currency:install
-
-## TODO
-
-* The price range filters don't work properly for the non-default currency.
-* Style the currency selector to look better.
-* Improve the currency selector with something like select2.
 
 ## Contributing
 
@@ -60,10 +54,10 @@ Starting point:
 * Ensure specs pass by running `bundle exec rspec spec`
 * Submit your pull request
 
-Copyright (c) 2013, Spree Commerce, Inc. and other contributors, released under the [New BSD License][3]
+Copyright (c) 2013, Pronix LLC. and other contributors, released under the [New BSD License][3]
 
 [1]: http://www.fsf.org/licensing/essays/free-sw.html
 [2]: https://github.com/spree/spree_multi_currency/issues
 [3]: https://github.com/spree/spree_multi_currency/tree/master/LICENSE
-[4]: http://www.localeapp.com/projects/4925
+[4]: http://www.localeapp.com/projects/5369
 [5]: https://github.com/thoughtbot/guides
