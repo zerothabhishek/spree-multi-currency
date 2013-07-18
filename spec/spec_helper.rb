@@ -13,6 +13,7 @@ if ENV['COVERAGE']
     add_group 'Overrides', 'app/overrides'
     add_group 'Libraries', 'lib'
   end
+end
 
 ENV['RAILS_ENV'] = 'test'
 
